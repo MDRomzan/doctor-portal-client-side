@@ -17,16 +17,12 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Button} from '@mui/material';
 import {
-  Switch,
-  Route,
-  Link,
-  useRouteMatch
+  Outlet,
+  Link
+  
 } from "react-router-dom";
-import DashBoardHome from '../DashBoardHome/DashBoardHome';
-import MakeAdmin from '../MakeAdmin/MakeAdmin';
-import AddDoctor from '../AddDoctor/AddDoctor';
 import useAuth from '../../../Hooks/useAuth';
-import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+
 
 
 const drawerWidth = 240;
@@ -34,7 +30,7 @@ const drawerWidth = 240;
 function DashBoard(props) {
   const { window } = props;
   const {admin}=useAuth();
-  let { path, url } = useRouteMatch();
+  
   const [mobileOpen, setMobileOpen] = React.useState(false);  
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -47,14 +43,14 @@ function DashBoard(props) {
       <Link to="/appointment">
             <Button color="inherit" >Appointment</Button>
           </Link>
-     <Link to={`${url}`}>
+     <Link to="/dashboard">
             <Button color="inherit" >DashBoard</Button>
           </Link>
          {admin && <Box>
-           <Link to={`${url}/makeAdmin`}>
+           <Link to={`dashboard/makeAdmin`}>
             <Button color="inherit" >makeadmin</Button>
           </Link>
-       <Link to={`${url}/addDoctor`}>
+       <Link to={`dashboard/addDoctor`}>
             <Button color="inherit" >Add Doctor</Button>
           </Link> 
            </Box>}
@@ -137,18 +133,7 @@ function DashBoard(props) {
       >
         <Toolbar />
 
-      <Switch>
-        <Route exact path={path}>
-          <DashBoardHome></DashBoardHome>
-        </Route>
-        <AdminRoute path={`${path}/makeAdmin`}>
-          <MakeAdmin></MakeAdmin>
-        </AdminRoute>
-        <AdminRoute path={`${path}/addDoctor`}>
-          
-            <AddDoctor></AddDoctor>
-        </AdminRoute>
-      </Switch>
+          <Outlet></Outlet>
       </Box>
     </Box>
   );

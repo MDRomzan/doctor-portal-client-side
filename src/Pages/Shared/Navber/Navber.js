@@ -12,6 +12,9 @@ import { Box } from '@mui/material';
 
 const Navber = () => {
   const {user,logOut}=useAuth();
+  const btn={
+    textDecoration:"none"
+  }
     return (
  <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -28,8 +31,11 @@ const Navber = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Doctors Portal
           </Typography>
-          <Link to="/appointment">
-            <Button color="inherit" >Appointment</Button>
+          <Link style={btn} to="/appointment">
+            <Button sx={{color:"white"}} color="inherit" >Appointment</Button>
+          </Link>
+           <Link style={btn} to="/home">
+            <Button sx={{color:"white"}} color="inherit" >Home</Button>
           </Link>
          
           {
