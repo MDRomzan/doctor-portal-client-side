@@ -35,7 +35,7 @@ const BookingModal = ({openBooking,handleBookingClose,booking,date,setBookingSuc
       }
       // console.log(appointment)
         // collect data from the Server
-      fetch("http://localhost:5000/appointments",{
+      fetch("https://fast-anchorage-62107.herokuapp.com/appointments",{
         method:"POST",
         headers:{
           "content-type":"application/json"

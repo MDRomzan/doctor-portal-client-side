@@ -7,12 +7,14 @@ import Typography from '@mui/material/Typography';
 import fluoride from "../../../images/fluoride.png"
 import Whitening from "../../../images/whitening.png"
 import Cavity from "../../../images/cavity.png"
+import { AccessAlarm } from '@mui/icons-material';
 
 const services=[
   {
     name:"Fluoride Treatment",
     description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia sapiente doloremque hic ipsum quod repellat deleniti in ad voluptates aut?",
-    img:fluoride
+    img:fluoride,
+    
 
   },
   {
